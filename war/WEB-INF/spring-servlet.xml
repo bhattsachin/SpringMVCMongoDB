@@ -15,5 +15,7 @@
 	<beans:import resource="mongo.xml" />
 
 	<beans:bean name="/hello.htm" class="com.bhatt.controller.HelloController" />
+	<beans:bean name="/get.htm" class="com.bhatt.controller.GetRequestController" />
+	<beans:bean name="/post.htm" class="com.bhatt.controller.PostRequestController" />
 
 </beans:beans>

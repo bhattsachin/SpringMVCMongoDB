@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.bhatt.helper.HttpRequestWrapper;
 ;
 
 @Component
@@ -20,6 +22,9 @@ public class RequestInterceptor extends HandlerInterceptorAdapter{
 	       
 	       System.out.println("URL: " + hostString); 
 	       System.out.println("REQUESTED PAGE: " + requestedPage);
+	       HttpRequestWrapper reqWrapper = new HttpRequestWrapper(httpRequest);
+	       System.out.println("BODY: " + reqWrapper.getBody());
+	       
 	       System.out.println();
 	       return true;
 	    } 
@@ -41,6 +46,7 @@ public class RequestInterceptor extends HandlerInterceptorAdapter{
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		super.postHandle(request, response, handler, modelAndView);
+		System.out.println("RESPONSE: " + response.toString());
 	}
 
 	@Override
