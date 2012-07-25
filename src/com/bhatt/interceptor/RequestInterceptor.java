@@ -47,6 +47,8 @@ public class RequestInterceptor extends HandlerInterceptorAdapter{
 			ModelAndView modelAndView) throws Exception {
 		super.postHandle(request, response, handler, modelAndView);
 		System.out.println("RESPONSE: " + response.toString());
+		
+		
 	}
 
 	@Override

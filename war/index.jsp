@@ -9,7 +9,7 @@
     
     
     <h2>Post Request</h2>
-    <form action="post.htm" method="POST">
+    <form action="post" method="POST">
   		<input type="hidden" name="param1" value="value1">
   		<input type="hidden" name="param2" value="value2">
   		<input type="hidden" name="param3" value="value3">
