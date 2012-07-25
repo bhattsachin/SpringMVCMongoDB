@@ -12,6 +12,13 @@ import com.bhatt.entity.HttpRequestEntity;
 import com.mongodb.Mongo;
 import com.mongodb.ServerAddress;
 
+
+/**
+ * use [database];
+db.dropDatabase();
+ * @author sbhatt
+ *
+ */
 public class BaseDAO {
 
 	@Autowired(required = true)
@@ -42,18 +49,19 @@ public class BaseDAO {
 		if (template == null) {
 			Mongo mongo = null;
 			mongo = new Mongo(addrs);
-			
-			
 			template = new MongoTemplate(mongo, this.dbName);
-			
-			if(!template.collectionExists(HttpRequestEntity.class)){
-				CollectionOptions options = new CollectionOptions(2,4,true);
-		        
-				template.createCollection(HttpRequestEntity.class, options);
-			}
+			//if(template.collectionExists(HttpRequestEntity.class))
+			//	template.dropCollection(HttpRequestEntity.class);
 			
 			
 		}
+		System.out.println("BEFORE!!");
+		if(!template.collectionExists(HttpRequestEntity.class)){
+			System.out.println("WE GOT IN!!");
+			CollectionOptions options = new CollectionOptions(1,2,true);
+	        template.createCollection(HttpRequestEntity.class, options);
+	        
+		}	
 
 		return template;
 	}
