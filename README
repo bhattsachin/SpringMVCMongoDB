@@ -17,3 +17,5 @@ Existing Git Repo?
   cd existing_git_repo
   git remote add origin https://github.com/bhattsachin/SpringMVCMongoDB.git
   git push -u origin master
+
+Also have an instance of Mongodb running on localhost
