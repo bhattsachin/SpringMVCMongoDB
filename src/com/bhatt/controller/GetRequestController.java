@@ -19,9 +19,9 @@ public class GetRequestController implements Controller{
 	 public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 
-	        logger.info("Returning get request");
+		 logger.info("Returning get request");
 
-	        return new ModelAndView("get.jsp");
+	        return new ModelAndView("/get.jsp");
 	    }
 
 }

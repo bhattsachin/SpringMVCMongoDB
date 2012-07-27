@@ -11,11 +11,13 @@
 	<interceptors>
 		<beans:bean class="com.bhatt.interceptor.RequestInterceptor" />
 	</interceptors>
+	
 	<!-- the application context definition for the springapp DispatcherServlet -->
 	<beans:import resource="mongo.xml" />
-
-	<beans:bean name="/hello.htm" class="com.bhatt.controller.HelloController" />
-	<beans:bean name="/get.htm" class="com.bhatt.controller.GetRequestController" />
-	<beans:bean name="/post.htm" class="com.bhatt.controller.PostRequestController" />
+	
+	<beans:bean class="com.bhatt.filter.RequestFilter" id="loggingFilter" />
+	<beans:bean name="post.htm" class="com.bhatt.controller.PostRequestController" />
+	
+	
 
 </beans:beans>

@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.bhatt.helper.HttpRequestWrapper;
 ;
 
 @Component
@@ -17,15 +15,15 @@ public class RequestInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse, Object handler) throws Exception {
 
-		   String hostString = httpRequest.getHeader("HOST");
-		   String requestedPage = getRequestedPage(httpRequest); 
+		  // String hostString = httpRequest.getHeader("HOST");
+		  // String requestedPage = getRequestedPage(httpRequest); 
 	       
-	       System.out.println("URL: " + hostString); 
-	       System.out.println("REQUESTED PAGE: " + requestedPage);
-	       HttpRequestWrapper reqWrapper = new HttpRequestWrapper(httpRequest);
-	       System.out.println("BODY: " + reqWrapper.getBody());
+	      // System.out.println("URL: " + hostString); 
+	      // System.out.println("REQUESTED PAGE: " + requestedPage);
+	      // HttpRequestWrapper reqWrapper = new HttpRequestWrapper(httpRequest);
+	      // System.out.println("BODY: " + reqWrapper.getBody());
 	       
-	       System.out.println();
+	      // System.out.println();
 	       return true;
 	    } 
 
@@ -46,8 +44,7 @@ public class RequestInterceptor extends HandlerInterceptorAdapter{
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		super.postHandle(request, response, handler, modelAndView);
-		System.out.println("RESPONSE: " + response.toString());
-		
+		//System.out.println("RESPONSE: " + response.toString());
 		
 	}
 

@@ -8,12 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.portlet.ModelAndView;
 
 import com.bhatt.dao.HttpRequestEntityDAO;
 import com.bhatt.entity.HttpRequestEntity;
 
 @Controller
-public class PostRequestController{
+public class RequestController{
 
 	protected final Log logger = LogFactory.getLog(getClass());
 	
@@ -46,6 +47,12 @@ public class PostRequestController{
 		return "OK GET REQUEST";
 	}
 	
+	@RequestMapping(value = { "/", "/hello.htm" }, method = RequestMethod.GET)
+	public ModelAndView handleIndex() throws Exception {
+		logger.info("Returning get request");
+
+		return new ModelAndView("index.jsp");
+	}
 	
 
 }
