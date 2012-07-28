@@ -58,7 +58,7 @@ public class BaseDAO {
 		System.out.println("BEFORE!!");
 		if(!template.collectionExists(HttpRequestEntity.class)){
 			System.out.println("WE GOT IN!!");
-			CollectionOptions options = new CollectionOptions(1,2,true);
+			CollectionOptions options = new CollectionOptions(4,5,true);
 	        template.createCollection(HttpRequestEntity.class, options);
 	        
 		}	

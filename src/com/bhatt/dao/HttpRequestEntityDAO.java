@@ -22,7 +22,6 @@ public class HttpRequestEntityDAO extends BaseDAO {
 	}
 	
 	public void save(HttpRequestEntity entity){
-		
 		getTemplate().save(entity);
 	}
 	
@@ -32,6 +31,8 @@ public class HttpRequestEntityDAO extends BaseDAO {
 		
 		return result;
 	}
+	
+	
 	
 	
 	
