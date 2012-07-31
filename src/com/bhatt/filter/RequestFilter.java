@@ -75,7 +75,7 @@ public class RequestFilter extends OncePerRequestFilter {
 		entity.setGuid(id.toStringMongod());
 		entity.setUrl(requestedPage);
 		
-		
+		entity.setCreationdate(new Date());
 		
 		
 		dao.save(entity);

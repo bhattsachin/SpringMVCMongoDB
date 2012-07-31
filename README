@@ -19,3 +19,6 @@ Existing Git Repo?
   git push -u origin master
 
 Also have an instance of Mongodb running on localhost
+
+use [database];
+db.dropDatabase()

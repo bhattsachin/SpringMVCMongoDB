@@ -2,6 +2,8 @@ package com.bhatt.dao;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.query.Query;
+
 import com.bhatt.entity.HttpRequestEntity;
 
 public class HttpRequestEntityDAO extends BaseDAO {
@@ -32,7 +34,13 @@ public class HttpRequestEntityDAO extends BaseDAO {
 		return result;
 	}
 	
+	public void delete(Query query){
+		getTemplate().remove(query, HttpRequestEntity.class);
+	}
 	
+	public void execute(Query query){
+		//getTemplate().executeQuery(query, collectionName, dch)
+	}
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.bhatt.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -18,6 +19,7 @@ public class HttpRequestEntity implements Serializable{
 	@Id
 	@Indexed
 	private String guid;
+	private Date creationdate;
 	
 	public String getUrl() {
 		return url;
@@ -55,14 +57,19 @@ public class HttpRequestEntity implements Serializable{
 	public void setGuid(String guid) {
 		this.guid = guid;
 	}
+	
+	public Date getCreationdate() {
+		return creationdate;
+	}
+	public void setCreationdate(Date creationdate) {
+		this.creationdate = creationdate;
+	}
 	@Override
 	public String toString() {
 		return "HttpRequestEntity [url=" + url + ", type=" + type + ", body="
 				+ body + ", response=" + response + ", uid=" + uid + ", guid="
-				+ guid + "]";
+				+ guid + ", creationdate=" + creationdate + "]";
 	}
-	
-	
 	
 
 }

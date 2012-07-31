@@ -12,6 +12,7 @@ import org.springframework.web.portlet.ModelAndView;
 
 import com.bhatt.dao.HttpRequestEntityDAO;
 import com.bhatt.entity.HttpRequestEntity;
+import com.bhatt.util.DataTableHelper;
 
 @Controller
 public class RequestController{
@@ -40,6 +41,17 @@ public class RequestController{
 		return sb.toString();
 	}
 	
+	@RequestMapping(value = { "/getalljson", "/view/getalljson" }, method = RequestMethod.GET)
+	public @ResponseBody String getAllJson(){
+		HttpRequestEntityDAO dao = HttpRequestEntityDAO.getInstance();
+		List<HttpRequestEntity> list = dao.getAll();
+		//StringBuilder sb = new StringBuilder();
+		
+		return DataTableHelper.getDataTableJson(list);
+		
+		//return sb.toString();
+	}
+	
 	@RequestMapping(value = { "/log/get", "/get.htm" }, method = RequestMethod.GET)
 	public @ResponseBody String handleGetRequest() throws Exception {
 		logger.info("Returning get request");
@@ -51,7 +63,26 @@ public class RequestController{
 	public ModelAndView handleIndex() throws Exception {
 		logger.info("Returning get request");
 
-		return new ModelAndView("index.jsp");
+		return new ModelAndView("index");
+	}
+	
+	/**
+	@RequestMapping(value = { "/viewlogs", }, method = RequestMethod.GET)
+	public String logs() {
+		logger.info("Returning get request");
+
+		//return "happy now";
+		return ("redirect:logs");
+	}
+	
+	*/
+	
+	@RequestMapping(value = "/view/logs", method = RequestMethod.GET)
+	public ModelAndView logsPage() {
+		logger.info("Returning get request");
+
+		//return "happy now";
+		return new ModelAndView("logs");
 	}
 	
 
